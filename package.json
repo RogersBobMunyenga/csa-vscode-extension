@@ -1,0 +1,42 @@
+{
+  "name": "simple-shop-snippets-nextjs",
+  "displayName": "Nextjs Shop App Snippets",
+  "description": "Simple snippets for your Next.js and Prisma Shopify app using kinngh's boilerplate",
+  "version": "0.0.1",
+  "publisher": "kinngh",
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kinngh/csa-vscode-extension.git"
+  },
+  "keywords": [
+    "kinngh",
+    "Next.js Shop Snippets",
+    "Create Shop App"
+  ],
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/js.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/js.json"
+      }
+    ]
+  },
+  "scripts": {
+    "pretty": "prettier --write ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.73.0",
+    "prettier": "^2.8.3"
+  }
+}

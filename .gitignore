@@ -1,0 +1,12 @@
+# Ignore the following files
+
+# npm
+node_modules
+package-lock.json
+
+# macOS
+.DS_Store
+
+# Development
+.vscode/snippets.code-snippets
+test-file.jsx
