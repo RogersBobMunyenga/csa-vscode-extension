@@ -2,7 +2,7 @@
 
 The essential collection of Snippets for creating Shopify applications when using [@kinngh/shopify-nextjs-prisma-app](https://github.com/kinngh/shopify-nextjs-prisma-app)
 
-![Snippets snippeting](images/snippets)
+![Snippets snippeting](assets/snippets.gif)
 
 ## Features
 
