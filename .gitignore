@@ -10,3 +10,6 @@ package-lock.json
 # Development
 .vscode/snippets.code-snippets
 test-file.jsx
+
+# Extension
+*.vsix
