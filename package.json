@@ -2,7 +2,7 @@
   "name": "simple-shop-snippets-nextjs",
   "displayName": "CSA - Next.js Snippets",
   "description": "Simple snippets for your Next.js and Prisma Shopify app using kinngh's boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "kinngh",
   "icon": "assets/icon.png",
   "repository": {
@@ -33,7 +33,9 @@
     ]
   },
   "scripts": {
-    "pretty": "prettier --write ./"
+    "pretty": "prettier --write ./",
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@types/vscode": "^1.70.0",

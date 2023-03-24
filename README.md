@@ -12,20 +12,21 @@ I selected these snippets from my regular use and code that I was writing over a
 
 ## Snippets
 
-| Snippet           | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| `imr`             | Import React                                          |
-| `imrs`            | Import React and useState                             |
-| `imrse`           | Import React, useState and useEffect                  |
-| `afc`             | Create an arrow function component                    |
-| `useEffect`       | Create useEffect hook                                 |
-| `useState`        | Create useState hook                                  |
-| `newPage`         | Create a new Polaris page with a Card                 |
-| `newPageEmpty`    | Create a new Polaris page with a Card and Empty State |
-| `createapi`       | Create a new endpoint for `/api`                      |
-| `createproxy`     | Create a new endpoint for `/api/proxy_route`          |
-| `createwebhook`   | Create a new webhook function                         |
-| `createClientGql` | Create a new GraphQL Client                           |
+| Snippet              | Description                                                 |
+| -------------------- | ----------------------------------------------------------- |
+| `imr`                | Import React                                                |
+| `imrs`               | Import React and useState                                   |
+| `imre`               | Import React and useEffect                                  |
+| `imrse`              | Import React, useState and useEffect                        |
+| `afc`                | Create an arrow function component                          |
+| `useEffect`          | Create useEffect hook                                       |
+| `useState`           | Create useState hook                                        |
+| `createNewPage`      | Create a new Polaris page with a LegacyCard                 |
+| `createNewPageEmpty` | Create a new Polaris page with a LegacyCard and Empty State |
+| `createapi`          | Create a new endpoint for `/api`                            |
+| `createproxy`        | Create a new endpoint for `/api/proxy_route`                |
+| `createwebhook`      | Create a new webhook function                               |
+| `createClientGql`    | Create a new GraphQL Client                                 |
 
 # Expansions
 
@@ -41,6 +42,12 @@ import * as React from "react";
 
 ```javascript
 import React, { useState } from "react";
+```
+
+### imre - Import React and useEffect
+
+```javascript
+import React, { useEffect } from "react";
 ```
 
 ### imrse - Import React, useState and useEffect
@@ -76,10 +83,10 @@ const [|, set|] = useState();
 
 ## Boilerplate Code
 
-### newPage - Create a new Polaris page with a Card
+### newPage - Create a new Polaris page with a LegacyCard
 
 ```javascript
-import { Page, Layout, Card } from "@shopify/polaris";
+import { Page, Layout, LegacyCard } from "@shopify/polaris";
 
 const | = (|) => {
     return (
@@ -87,9 +94,9 @@ const | = (|) => {
             <Page>
                 <Layout>
                     <Layout.Section>
-                        <Card sectioned title="|">
+                        <LegacyCard sectioned title="|">
                             <p>|</p>
-                        </Card>
+                        </LegacyCard>
                     </Layout.Section>
                 </Layout>
             </Page>
@@ -101,10 +108,10 @@ export default |;
 
 ```
 
-### newPageEmpty - Create a new Polaris page with a Card and Empty State
+### newPageEmpty - Create a new Polaris page with a LegacyCard and Empty State
 
 ```javascript
-import { Page, Layout, Card, EmptyState } from "@shopify/polaris";
+import { Page, Layout, LegacyCard, EmptyState } from "@shopify/polaris";
 
 const | = (|) => {
     return (
@@ -112,7 +119,7 @@ const | = (|) => {
             <Page>
                 <Layout>
                     <Layout.Section>
-                        <Card sectioned>
+                        <LegacyCard sectioned>
                             {/* Taken from Shopify Polaris */}
                             <EmptyState
                                 heading="Manage your inventory transfers"
@@ -125,7 +132,7 @@ const | = (|) => {
                             >
                                 <p>Track and receive your incoming inventory from suppliers.</p>
                             </EmptyState>
-                        </Card>
+                        </LegacyCard>
                     </Layout.Section>
                 </Layout>
             </Page>

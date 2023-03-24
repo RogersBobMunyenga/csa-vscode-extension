@@ -10,6 +10,11 @@
     "body": ["import React, { useState } from 'react';\n"],
     "description": "Import React and useState"
   },
+  "Import React and useEffect": {
+    "prefix": "imre",
+    "body": ["import React, { useEffect } from 'react';\n"],
+    "description": "Import React and useEffect"
+  },
 
   "Import React, useState and useEffect": {
     "prefix": "imrse",
@@ -42,9 +47,9 @@
   },
 
   "Polaris Page": {
-    "prefix": "newPage",
+    "prefix": "createNewPage",
     "body": [
-      "import { Page, Layout, Card } from \"@shopify/polaris\";",
+      "import { Page, Layout, LegacyCard } from \"@shopify/polaris\";",
       "",
       "const $1 = ($2) => {",
       "\treturn (",
@@ -52,9 +57,9 @@
       "\t\t\t<Page>",
       "\t\t\t\t<Layout>",
       "\t\t\t\t\t<Layout.Section>",
-      "\t\t\t\t\t\t<Card sectioned title=\"$3\">",
+      "\t\t\t\t\t\t<LegacyCard sectioned title=\"$3\">",
       "\t\t\t\t\t\t\t<p>$4</p>",
-      "\t\t\t\t\t\t</Card>",
+      "\t\t\t\t\t\t</LegacyCard>",
       "\t\t\t\t\t</Layout.Section>",
       "\t\t\t\t</Layout>",
       "\t\t\t</Page>",
@@ -64,13 +69,13 @@
       "",
       "export default $1;"
     ],
-    "description": "Create a new page with a sectioned Card component."
+    "description": "Create a new page with a sectioned LegacyCard component."
   },
 
   "Polaris Page with Empty State": {
-    "prefix": "newPageEmpty",
+    "prefix": "createNewPageEmpty",
     "body": [
-      "import { Page, Layout, Card, EmptyState } from \"@shopify/polaris\";",
+      "import { Page, Layout, LegacyCard, EmptyState } from \"@shopify/polaris\";",
       "",
       "const $1 = ($2) => {",
       "\treturn (",
@@ -78,7 +83,7 @@
       "\t\t\t<Page>",
       "\t\t\t\t<Layout>",
       "\t\t\t\t\t<Layout.Section>",
-      "\t\t\t\t\t\t<Card sectioned>",
+      "\t\t\t\t\t\t<LegacyCard sectioned>",
       "\t\t\t\t\t\t\t{/* Taken from Shopify Polaris */}",
       "\t\t\t\t\t\t\t<EmptyState",
       "\t\t\t\t\t\t\t\theading=\"Manage your inventory transfers\"",
@@ -91,7 +96,7 @@
       "\t\t\t\t\t\t\t>",
       "\t\t\t\t\t\t\t\t<p>Track and receive your incoming inventory from suppliers.</p>",
       "\t\t\t\t\t\t\t</EmptyState>",
-      "\t\t\t\t\t\t</Card>",
+      "\t\t\t\t\t\t</LegacyCard>",
       "\t\t\t\t\t</Layout.Section>",
       "\t\t\t\t</Layout>",
       "\t\t\t</Page>",
@@ -101,7 +106,7 @@
       "",
       "export default $1;"
     ],
-    "description": "Create a new page with an Empty State and sectioned Card component."
+    "description": "Create a new page with an Empty State and sectioned LegacyCard component."
   },
 
   "api/ route with middleware": {
@@ -110,9 +115,10 @@
       "import withMiddleware from \"@/utils/middleware/withMiddleware.js\";",
       "",
       "const $1 = async (req, res) => {",
-      "\tif (req.method === \"GET\") {",
+      "\tif (req.method !== \"GET\") {",
       "\t\t//GET, POST, PUT, DELETE",
       "\t\tconsole.log(\"Serve this only if the request method is GET\");",
+      "\t\treturn res.status(401).send({ error: true });",
       "\t}",
       "",
       "\ttry {",
@@ -120,7 +126,7 @@
       "\t\treturn res.status(200).send({ text: \"Success!\" });",
       "\t} catch (e) {",
       "\t\tconsole.error(e);",
-      "\t\treturn res.status(400).send({ text: \"Bad request\" });",
+      "\t\treturn res.status(401).send({ error: true });",
       "\t}",
       "};",
       "",
@@ -135,16 +141,17 @@
       "import withMiddleware from \"@/utils/middleware/withMiddleware.js\";",
       "",
       "const $1 = async (req, res) => {",
-      "\tif (req.method === \"GET\") {",
+      "\tif (req.method !== \"GET\") {",
       "\t\t//GET, POST, PUT, DELETE",
       "\t\tconsole.log(\"Serve this request only if method type is GET\");",
+      "\t\treturn res.status(401).send({ error: true });",
       "\t}",
       "\ttry {",
       "\t\t$2",
       "\t\tres.status(200).send({ content: \"Proxy Be Working\" });",
       "\t} catch (e) {",
       "\t\tconsole.error(e);",
-      "\t\tres.status(400).send({ content: \"An error occured\" });",
+      "\t\treturn res.status(401).send({ error: true });",
       "\t}",
       "};",
       "",
@@ -191,7 +198,7 @@
       "\t\tres.status(200).send(response);",
       "\t} catch (e) {",
       "\t\tconsole.error(e);",
-      "\t\tres.status(400).send({ error: \"An error occured\" });",
+      "\t\treturn res.status(400).send({ error: true });",
       "\t}",
       "};",
       "",
